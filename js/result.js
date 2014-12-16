@@ -5,7 +5,7 @@
 
 
 function　btns2(){
-    $('#rslt').on('click','button',function(){
+    $('#rslts').on('click','button',function(){
       $(this).hide();
       $(this).next().show();
       $(this).prev().show();
