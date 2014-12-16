@@ -1,3 +1,9 @@
+// VerbalQuiz
+// Copyright (c) 2014 KosukeSera
+// This software is released under the MIT License.
+// http://opensource.org/licenses/mit-license.php
+
+
 //examdata = editからきたやつ
 var exam=examdata;
 // var exam = JSON.parse($('#hoge').text());
@@ -189,7 +195,7 @@ function quiz() {
   var j=cnt+1
   var num = "第" + j.toString() + "問";
   $('#num').text(num);
-  $("#Q").text(thisQ);
+  $("#thisQ").text(thisQ);
   spch(thisQ,cnt);
 
   cnt++;

@@ -1,3 +1,9 @@
+// VerbalQuiz
+// Copyright (c) 2014 KosukeSera
+// This software is released under the MIT License.
+// http://opensource.org/licenses/mit-license.php
+
+
 function　btns2(){
     $('#rslt').on('click','button',function(){
       $(this).hide();
