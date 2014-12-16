@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>test</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/edit.js"></script>
+    <script src="js/result.js"></script>
+    <script src="js/exam.js"></script>
+</head>
+<body>
+<div class="container">
+<!--1.edit部分-->
+<div id="editarea">
+<h2>好きな問題を作ってください。</h2><hr>
+  <p>スタートボタンを押すと、PCが一問ずつ読み上げます。マイクに向かってすばやくはっきりと答えましょう。<br>
+  ※ブラウザ上部にポップアップが出てくるので、マイクの使用を許可するのを忘れずに</p>
+  <p>問題作成のコツ<br>
+	・解答は短めに<br>
+	・「～したのは？」などの問題は、「～したのわ？」にしないと「は」と発音します。<br>
+	・まあ、色々試してみてください。<br>
+  </p>
+<button id="append" type="button" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>問題の追加</button>
+<br>
+<style>
+  #origin {
+   display : none;
+  }
+</style>
+<table class="table">
+  <thead>
+  <tr class="thead">
+    <th class="col-sm-6">問題</th>
+    <th class="col-sm-4">解答</th>
+    <th class="col-sm-2">削除</th>
+  </tr>
+  </thead>
+  <tbody id="exam">
+  <tr id="origin" class="origin">
+    <td><input class="form-control" type="text" id="Q"></td>
+    <td><input class="form-control" type="text" id="A"></td>
+    <td><button type="button" class="btn btn-md btn-default rm" id="rm">削除</button></td>
+  </tr>
+  <tr id="quiz" class="quiz">
+    <td><input class="form-control" type="text" id="Q"></td>
+    <td><input class="form-control" type="text" id="A"></td>
+    <td><button type="button" class="btn btn-md btn-default rm" id="rm">削除</button></td>
+  </tr>
+  </tbody>
+</table>
+<button id="save" type="button" class="btn btn-primary btn-md">スタート！</button><br><br>
+</div>
+
+
+<!--2.exam部分-->
+<div id="examarea" style="display:none">
+<h2>大きな声で答えましょう</h2><br><br>
+<div>問題：<h1 id="Q"></h1></div>
+<div>あなたの答え：<h1 id="userA"></h1></div>
+
+<div id="st"></div>
+
+<div id="buttons">
+<!--開始ボタン-->
+  <button type="button" id="start" class="rec btn btn-success btn-md" onclick="start();">スタート！</button>
+  <button type="button" id="stop" class="rec btn btn-warning btn-md" style="display:none" onclick="stop();">ストップ</button>
+  <button type="button" id="resume" class="rec btn btn-success btn-md" style="display:none" onclick="resume();">再開</button>
+</div>
+</div>
+
+
+<!--3.rslt部分-->
+<div id="rsltarea" style="display:none">
+<h2>結果発表！</h2>
+<table class="table">
+  <thead>
+    <tr><th class="col-sm-5">問題</th><th class="col-sm-3">解答</th><th class="col-sm-3">自分の答え</th><th class="col-sm-2">まるばつ</th></tr>
+  </thead>
+  <tbody id="rslts">
+    <tr id="origin2" style="display:none"><td id="Qst"></td><td id="Ans"></td><td id="userA"></td><td id="tf" class="tf"><button type="button" id="ok" class="btn btn-sm btn-success ok">○</button><button type="button" id="ng" class="btn btn-sm btn-danger ng" style="display:none">×</button></td></tr>
+  </tbody>
+  </table>
+<div id="answer"><span>正解数　<span id="numcnt"></span>問中　<span id="numtrue"></span>問</span></div>
+<button id="showedit" type="button" class="btn btn-default btn-md">問題を編集</button>　　<button type="button" class="btn btn-default btn-md" onclick="location.reload();">新規の問題を作成</button>
+</div>
+</div>
+
+</body>
+</html>
