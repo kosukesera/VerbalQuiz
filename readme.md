@@ -1,5 +1,8 @@
 #VerbalQuiz
 
+##version
+ver0.6
+
 ##ライセンス
 MITライセンスで公開しています。LICENSE.txtを参照のこと。  
 This software is released under the MIT License, see LICENSE.txt.  
@@ -60,6 +63,5 @@ exam.jsのsetTimeoutの時間は適宜調整してください。
 日本語の音声認識は勝手に漢字に変換してしまうことがあり、  
 正確な正誤判定ができない可能性があるため、手動での採点も可能にしています。  
 (ただし、得点の記録などはおこなっていないため、このアプリ自体においては採点は意味をもちません)  
-問題の編集、を押すと、examとrsltをhideしてeditをshowします。  
 新規の問題を作成、を押すとページをリロードします。  
 

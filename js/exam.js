@@ -5,7 +5,7 @@
 
 
 //examdata = editからきたやつ
-var exam=examdata;
+// var exam = examdata;
 // var exam = JSON.parse($('#hoge').text());
 
 //言語設定
@@ -97,8 +97,9 @@ function spch(tx,cnt){
 //(メイン！！！)問題まわすところ
 var cnt = 0;
 var isRunning; //ストップフラグ
+var startcode = "ok";
 
-//最初はOKが聞こえたらスタートする
+//最初はstartcodeが聞こえたらスタートする
 rec.onresult = function (event) {
     rslt[0] = '';
     var interimText = '';
@@ -112,7 +113,7 @@ rec.onresult = function (event) {
            console.log(rslt[0]);
            //格納されたOKを次回以降表示しないように。
            numrs++;
-           if(finalText=="ok"){  
+           if(startcode.indexOf(finalText)!==-1){  
               start2();
            }
       } else {
@@ -196,10 +197,11 @@ function quiz() {
   var num = "第" + j.toString() + "問";
   $('#num').text(num);
   $("#thisQ").text(thisQ);
+  $("userA").text("");
   spch(thisQ,cnt);
 
   cnt++;
-  setTimeout(quiz, '8000');
+  setTimeout(quiz, '10000');
   }
 };
 

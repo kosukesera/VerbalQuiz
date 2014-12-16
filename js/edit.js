@@ -4,6 +4,7 @@
 // http://opensource.org/licenses/mit-license.php
 
 var examdata=[];
+var exam = [];
 function　btns1(){
  $('#append').click(function (){
    var origin = $('#origin');
@@ -18,8 +19,9 @@ function　btns1(){
  });
 
  $('#save').click(function(){
-  //一番左上のマスが空欄なら怪しむ
-   //問題データ生成。
+    var examdata=[];
+    //一番左上のマスが空欄なら怪しむ
+    //問題データ生成。
     var badQ = false;
      $('.quiz').each(function(i){
         examdata[i] = [];
@@ -39,6 +41,7 @@ function　btns1(){
    }else{
    $('#editarea').hide();
    $('#examarea').show();
+   exam = examdata;
    }
  });
 

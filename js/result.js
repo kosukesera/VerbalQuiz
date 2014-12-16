@@ -9,20 +9,36 @@ function　btns2(){
       $(this).hide();
       $(this).next().show();
       $(this).prev().show();
-     });
 
-    $('#showedit').click(function(){
-      $('#rsltarea').hide();
-      $('#editarea').show();
-     });
+      var tf_flg = $(this).attr('id');
+      var sumtrue = Number($("#numtrue").text());
+        if(tf_flg=="ok"){
+          sumtrue = sumtrue - 1;
+        }else{
+          sumtrue = sumtrue + 1;
+        };
+      $("#numtrue").text(sumtrue);
+    });
+
+    // $('#showedit').click(function(){
+    //   $('#rsltarea').hide();
+    //   $('#editarea').show();
+    //  });
 }
+
+function sumtrue(){
+  $(".numtrue").each(function(i){  
+    $(this).text().to
+    });
+}
+
 
 //読込は関数定義だけしておきます
   function shwrslt(arr){
   var rslttbl = "";
   var rsltdata = arr;
-  var numtrue = 0;
-  var numcnt = 0;
+  var sumtrue = 0;
+  var sumquiz = 0;
     for (i = 0; i < rsltdata.length; i++) {
         var j = i+1
         console.log(i);
@@ -51,22 +67,21 @@ function　btns2(){
             flg1="style=\"display:none\"";
             console.log("NG");
           }else{
-            numtrue++;
+            sumtrue++;
             // rslttbl += "○";
             flg2="style=\"display:none\"";
             console.log("OK");
           }
-            numcnt++;
-         rslttbl += "<button type=\"button\" id=\"ok\" class=\"btn btn-sm btn-success ok\" "+flg1+">○</button>";
-         rslttbl += "<button type=\"button\" id=\"ng\" class=\"btn btn-sm btn-danger ng\" "+flg2+">×</button>";
-
+            sumquiz++;
+         rslttbl += "<button type=\"button\" id=\"ok\" class=\"btn btn-sm btn-success ok\" "+flg1+"><b>○</b></button>";
+         rslttbl += "<button type=\"button\" id=\"ng\" class=\"btn btn-sm btn-danger ng\" "+flg2+"><b>×</b></button>";
          rslttbl += "</td>\n";
       rslttbl += "</tr>\n";
       $("#rslts").append(rslttbl);
-      btns2();
+      // btns2();
     };
-    $("#numcnt").text(numcnt);
-    $("#numtrue").text(numtrue);
+    $("#numcnt").text(sumquiz);
+    $("#numtrue").text(sumtrue);
 
 }
 
